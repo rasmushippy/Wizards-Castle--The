@@ -1,0 +1,212 @@
+*
+*       Игра "Замок волшебника" выпущена в июле/августе 1980
+*       По заказу развлекательного компьютерного журнала 
+*
+*       Оригинальная версия для Exidy Sorcerer от Джосефа Р. Пауэра
+*       Обновлённая версия хита для Microsoft Basic от Дж. Ф. Стетсона
+*
+"Замок волшебника" это фэнтезийная игра примерно равная по сложности некоторым версиям приключенческих игр для современных микрокомпьютеров и это само собой большая программа написанная на Basic.
+В отличии от приключений, этот замок случайным образом укомплектовывается для каждой игры, это означает, что одна победа не уменьшает интереса при повторном прохождении. В настоящее время существую версии "Замка волшебника" для компьютеров Exidy Sorcerer, TRS-80, HP-2000 и хита H-8/H-89.
+*
+*       Предыстория
+*
+Много циклов назад. в королевтсве N'dic, гном волшебник Зот изготовил свой великий "Шар силы". Вскоре он исчез оставив после себя подземный замок наполненный голодными монстрами, сказочными сокровищами и этот невероятный "Шар Зота". Поэтому с тех пор много смельчаков отважилось попасть в замок волшебника. 
+Пока ещё никто из них не победил.
+*
+*       Введение
+*
+Замок волшебника это компьютерная симуляция одного из распространённых и популярных фэнтезийных сюжетов - это одиночный приключенческий квест в огромных подземных лабиринтах. Каждая игра является отделённой от всех остальных. Так эта игра является испытанием даже по прошествии некоторого времени после победы. Результатом каждой игры будет победа или поражение, в зависимости от навыков и удачи игрока. Эта инструкция последовательно объясняет правила и опции этой игры. Однако если в какой-либо момент времени ты не знаешь, что делать - экспериментируй. Эта программа разработана так, что не допустит ошибочного ввода.
+*
+*       Создание персонажа
+*
+При каждом старте игра задаст тебе несколько вопросов о типе типе твоего будущего персонажа. Ты должен выбрать следующее:
+*
+Раса (RACE)	Ты можешь быть эльфом (ELF), гномом (DWARF), человеком (MAN) или хоббитом (HOBBIT). Каждая раса начинает суммарно с 32 очками (за исключением хоббитов, которые получают только 28), но они распределены различно для каждой расы.
+*
+Пол (SEX)	Ты можешь быть мужчиной или женщиной. Они оба равны в способностях и количестве очков. Будь креативным в своём ответе.
+*
+Очки (POINTS)	Каждый персонаж начинает с количеством очков таких атрибутов, как Сила (ST),Интеллект (IQ), и ловкость (DX). В добавок некоторое другое количество очков ты можешь распределить по трём атрибутам как пожелаешь.
+*
+Твоя сила, интеллект и ловкость могут быть любыми от 1 до 18. Если люой из этих параметров упадёт ниже 1, ты умрёшь. Для всех трёх аттрибутов, чем больше цифровое значение,тем лучше.   Также каждый персонаж начинает игру с 60 золотыми монетами (GP), с помощью которых можно купить ничего или всё из следующих предметов:
+*
+Броня (ARMOR)	Ты можешь купить пластинчатую броню (PLATE ARMOR) за 30 GP, кольчугу (CHAINMAIL) за 20 GP или кожанную (LEATHER) за 10 GP. В один момент времени ты можешь носить только один бронированный костюм. Чем дороже броня, тем больше урон она поглотит.
+*
+Оружие (WEAPON)	Ты можешь купить меч (SWORD) за 30 GP, булаву (MACE) за 20 GP или кинжал (DAGGER) за 10 GP. В один момент времени ты можешь нести только один вид оружия. Чем дороже оружие, тем больший урон оно наносит различным монстрам.
+*
+Лампа (LAMP) Если после выбора брони и оружия у тебя осталось 20 GP и более, ты можешь купить лампу за 20 GP. Наличие лампы позволит тебе заглянуть в соседнюю комнату без необходимости входа в неё.
+*
+Вспышки (FLARES)  Если , после приобретения всего прочего, у тебя остались какие-нибудь деньги, ты можешь купить вспышки по 1 GP за каждую. Свет вспышки показывает содержимое всех комнат прилегающих к твоему текущемуположению.
+*
+Итак, у тебя есть созданный и экипированный персонаж, и теперь ты готов войти в замок и начать своё приключение.
+*
+*       Замок
+*
+Замок устроен как трёхмерная матрица с размером 8x8x8. Это значит, что здесь 8 уровней и 64 комнаты на каждом уровне. Все уровни замка пронумерованы от 1 (верхний уровень) до 8 (нижний уровень). Каждый уровень замка сконструирован как пончик, в котором северный край соединён с южным, а западный с восточным. В том же стиле, водостоки (разъясняется позднее) на 8 уровне перебросят тебя на 1 уровень. Только одна комната не функционирует так же, как эти, это комната входа/выхода из замка, которая расположена всегда в локации (1,4) первого уровня. Двигаясь на север из этой комнаты, ты покидаешь замок и заканчиваешь игру.
+*
+Каждая комната будет иметь одно из следующих содержимых:
+*
+E       Комната входа/выхода
+.       Пустая комната, ничего не содержащая
+U       Лестница поднимающаяся вверх на уровень выше
+D       Лестница опускающаяся вниз на уровень ниже
+P       Волшебный колодец, из которого ты можешь пить
+C       Сундук, который ты можешь открыть
+B       Книга, которую ты можешь открыть
+G       1-10 золотых монет
+F       1-3 вспышки
+W       Смещение в другую случайную локацию
+M       Монстр (один из 12 различных типов)
+V       Тоговец, которого ты можешь атаковать, игорировать или тоговать с ним.
+O       Кристальный шар (это не шар Зота)
+S       Водосточный колодец (комната без пола)
+T       Сокровище (одо из 8 в замке)
+*
+Буквы, которые отображаются всякий раз, когда ты смотришь на свою карту или освещаешь вспышкой, являются аббревиатурой содержимого комнаты. Когда ты смотришь на свою карту, такомната, в котоой ты находишься заключена в скобки типа <>.
+*
+*       Комманды игрока
+*
+Всякийраз когда комманда запрашивает комманду, ты должен принять решение, какое действие ты желаешь выполнить. Если твой выбор не подходит для текущей ситуации, программа инфомирует тебя и позволит тебе попробовать снова. Далее перечислен список комманд, которые программа понимает, с описанием их эффектов и ограничений:
+*
+NORTH (Север)   	    Перемещает тебя в комнату севернее твоей текущей позиции. Когда ты идёшь на север из комнаты входа/выхода, игра завершается. Во всех других случаях, северный край смещает тебя по кругу на южный край.
+*
+SOUTH (Юг)      	    Перемещает тебя в комнату южнее твоей текущей позиции. Во всех других случаях, южный край смещает тебя по кругу на северный край.
+*
+EAST (Восток)   	    Перемещает тебя в комнату восточнее твоей текущей позиции. Во всех других случаях, восточный край смещает тебя по кругу на западный край.
+*
+WEST (Запад)    	    Перемещает тебя в комнату западнее твоей текущей позиции. Во всех других случаях, западный край смещает тебя по кругу на восточный край.
+*
+UP (Вверх)      	    Позволяет тебе подняться по лестнице идущей вверх. Ты должен быть в комнате содержащей лестницу идущую вверх.
+*
+DOWN (Вниз)     	    Позволяет тебе спуститься по лестнице идущей вниз. Ты должен быть в комнате содержащей лестницу идущую вниз.
+*
+DRINK (Пить)    	    Позволяет тебе пить из волшебного колодца. Ты можешь повторять этукомманду так часто, как пожелаешь, но ты должен быть в комнате содержащей волшебный колодец.
+*
+MAP (Карта)     	    Позволяет напечатать карту твоего текущего уровня. Все неисследованные комнаты отображаются как "?". Все прочие комнаты обозначены их аббревиатурой. Ты можешь посмотреть на карту в любое время, если не ослеп или не бежишь от монстра.
+*
+FLARE (Вспышка) 	    Позволяет светить одной из твоих вспышек, чтобы выявить содержимое комнат прилегающих к твоей текущей позиции. Так как каждый край присоединён к противоположному краю, ты всегда будешь видеть 9 комнат ствоей локацией в центре. Каждая вспышка сгорает безвозвратно, ты можешь светить вспышками столько, сколько ты их имеешь пока ты не слеп или не убегаешь от монстра. Для тех, кто знаком с любыми играми серии "Star Trek", вспышка работает на таком же участке, что и датчик сканирования с добавлением вращения.
+*
+LAMP (Лампа)    	    Позволяет тебе светить в любую из комнат севернее, южнее, восточнее или западнее твоей текущей позиции, чтобы выявить содержимое комнат. В отличие от вспышек, лампа может быть использована повторно. Ты можешь использовать твою лампу в любой момент времени , кроме тех случаев, когда у тебя нет лампы,ты ослеп или бежишь от монстра.
+*
+OPEN (Открыть)  	    Позволяет открыть тебе книгу или сундук в той комнате, где ты находишься.
+*
+GAZE (Посмотреть) 	    Позволяет тебе посмотреть в кристальный шар. Когда ты видишь себя в крови, ты теряешь 1 или 2 очка силы.Если ты видишь локацию с шаром Зота , есть только 50% вероятности, что это правда. Ты не можешь посмотреть, когда ты ослеп или комната не содержит кристальный шар.
+*
+TELEPORT (Телепотироваться) Позволяет тебе телепортироваться непосредственно в специальную комнату в любом месте замка. Это единственный путь входа в комнату содержащую шар Зота. Ты должен иметь волшебный посох телепортации.
+*
+QUIT (Выйти)   		    Позволяет тебе закончить игру пока ты остаёшься в замке. Ты получишь запрос, действительо ли ты хочешь выйти, на случай если ты совершил ошибку или хочешь поменять решение. Если ты выйдешь, ты проиграешь.
+*
+HELP (Помощь)   	    Позволяет в любой момент игры отобразить сводку доступных комманд, аббревиатур используемых в описании содержимого комнат, а также пользу каждого сокровища.
+*
+        Все комманды, исключая пить, могут быть сокращены до их первой буквы (M для карты, Q для выхода и т.д.). Аббревиатура для пить - "DR" (отличается от "D" для комманды вниз).
+*
+*       MAGIC SPELLS
+*
+WHENEVER YOUR INTELLIGENCE (IQ) BECOMES 15 OR HIGHER, YOU GAIN THE OPTION
+TO CAST A MAGIC SPELL ON A MONSTER IF YOU HAVE THE VERY FIRST COMBAT OPTION.
+THE THREE SPELLS AND THEIR EFFECTS ARE AS FOLLOWS :
+*
+WEB     TRAPS THE MONSTER IN A STICKY WEB SO THAT IT CAN'T FIGHT BACK
+        AS YOU ATTACK IT. THIS SPELL LASTS FROM 2 TO 9 TURNS AND COSTS
+        YOU ONE STRENGTH (ST) POINT.
+*
+FIRE-   HITS THE MONSTER WITH A BALL OF FLAME THAT CAUSES BETWEEN 2 AND 14
+BALL    POINTS WORTH OF DAMAGE INSTANTLY. IT COSTS ONE STRENGTH POINT AND
+        ONE INTELLIGENCE POINT.
+*
+DEATH-  IS A CONTEST OF WILLS BETWEEN THE MONSTER AND YOURSELF. WHOEVER
+SPELL   HAS THE LOWER INTELLIGENCE DIES AT ONCE. IT COSTS NOTHING TO USE,
+        BUT IT IS VERY RISKY. EVEN WITH AN IQ OF 18 (THE HIGHEST POSSIBLE),
+        YOU STILL HAVE A 25% CHANCE OF BEING KILLED.
+*
+*       TREASURES, CURSES, BLINDNESS, AND SUCH
+*
+IN THE CASTLE ARE EIGHT RANDOMLY PLACED TREASURES :
+*
+THE RUBY RED - WARDS OFF THE CURSE OF LETHARGY.
+THE PALE PEARL - WARDS OFF THE CURSE OF THE LEECH.
+THE OPAL EYE - CURES BLINDNESS.
+THE GREEN GEM - WARDS OFF THE CURSE OF FORGETFULLNESS.
+THE BLUE FLAME - DISSOLVES BOOKS STUCK TO YOUR HANDS.
+*
+THE NORN STONE - HAS NO SPECIAL POWER.
+THE PALANTIR - HAS NO SPECIAL POWER.
+THE SILMARIL - HAS NO SPECIAL POWER.
+*
+THERE ARE THREE CURSES :
+*
+LETHARGY - THIS GIVES THE MONSTERS THE FIRST ATTACK WHICH PREVENTS
+        YOU FROM BRIBING THEM OR CASTING SPELLS ON THEM.
+*
+LEECH - THIS TAKES FROM 1 TO 5 GP'S FROM YOU EACH TURN UNTIL YOU
+        HAVE NO GOLD PIECES LEFT.
+*
+FORGETFULLNESS - THIS CAUSES YOU TO FORGET WHAT YOU KNOW ABOUT THE
+        CASTLE. YOUR MAP WILL SLOWLY RETURN TO ALL QUESTION MARKS.
+        HOWEVER, THE CONTENTS OF THE ROOMS IN THE CASTLE ARE THE SAME.
+*
+IN ADDITION TO NULLIFYING THE EFFECTS OF THE CURSES, THE TREASURES ALSO
+PROVIDE PROTECTION FROM TWO UNDESIRABLE THINGS WHICH CAN HAPPEN WHEN YOU
+OPEN A BOOK. THESE ARE GOING BLIND, WHICH PREVENTS YOU FROM SEEING YOUR
+MAPS, LIGHTING FLARES, USING YOUR LAMP, GAZING INTO ORBS, AND BEING
+INFORMED OF YOUR PRESENT LOCATION, AND SECONDLY, HAVING THE BOOK STICK
+TO YOUR HANDS, WHICH PREVENTS YOU FROM USING YOUR WEAPON TO FIGHT MONSTERS
+(YOU CAN STILL CAST SPELLS AT THEM IF YOU ARE SMART ENOUGH, HOWEVER).
+*
+*       VENDORS
+*
+ON EVERY LEVEL IN THE CASTLE, THERE ARE VENDORS WHO ARE MORE THAN WILLING
+TO SELL YOU VARIOUS ITEMS AT GROSSLY INFLATED PRICES. NORMALLY, THE VENDORS
+WILL MAKE YOU AN OFFER FOR EVERY TREASURE YOU HAVE, AND THEN, DEPENDING ON
+THE AMOUNT OF GOLD YOU HAVE, WILL SELL YOU NEW ARMOR, A NEW WEAPON, POTIONS
+OF STRENGTH, INTELLIGENCE AND DEXTERITY (NO MATTER HOW MANY POTIONS YOU BUY,
+THE MAXIMUM AMOUNT OF THESE ATTRIBUTES YOU CAN HAVE IS 18), AND A LAMP, IF
+YOU DON'T ALREADY HAVE ONE. IF YOU CHOOSE TO ATTACK A VENDOR, YOU WILL THEN
+ANTAGONIZE EVERY VENDOR IN THE CASTLE, AND THEY WILL ALL REACT LIKE MONSTERS.
+YOU WILL ALSO LOSE THE ABILITY TO TRADE WITH THEM. KILLING A VENDOR, HOWEVER,
+WILL GIVE YOU NEW PLATE ARMOR, A SWORD, ONE OF EACH KIND OF POTION, AND A
+LAMP (IF YOU DON'T HAVE ONE), IN ADDITION TO HIS HOARD OF BETWEEN 1 AND 1000
+GOLD PIECES. TO END HOSTILITIES AND REESTABLISH TRADING PRIVILEGES, YOU MUST
+BRIBE ANY VENDOR IN THE CASTLE WITH THE TREASURE OF HIS CHOICE.
+*
+*       MONSTERS AND THE RUNESTAFF
+*
+THERE ARE 12 TYPES OF MONSTERS IN THE CASTLE :
+*
+KOBOLD, ORC, WOLF, GOBLIN, OGRE, TROLL
+BEAR, MINOTAUR, GARGOYLE, CHIMERA, BALROG, DRAGON
+*
+PLEASE NOTE THAT EACH TIME YOU STRIKE A GARGOYLE OR A DRAGON,
+THERE IS A POSSIBILITY THAT YOUR WEAPON WILL BE SHATTERED.
+*
+EACH MONSTER POSSESSES A HOARD OF FROM 1 TO 1000 GP'S WHICH YOU OBTAIN
+WHEN YOU KILL THE MONSTER. IN ADDITION, ONE OF THE MONSTERS IS CARRYING
+THE RUNESTAFF (YOU WON'T KNOW WHICH ONE UNTIL YOU KILL IT). YOU MUST HAVE
+THE RUNESTAFF TO TELEPORT, AND WHEN YOU TELEPORT INTO THE CASTLE ROOM WHICH
+CONTAINS THE *ORB OF ZOT*, THE RUNESTAFF DISAPPEARS (YOU MUST FIND YOUR WAY
+TO THE CASTLE EXIT WITHOUT IT).
+*
+*       WARPS AND THE *ORB OF ZOT*
+*
+ALL BUT ONE OF THE ROOMS DENOTED AS "W" REALLY ARE WARPS, AND WALKING,
+FALLING, OR TELEPORTING INTO THEM WILL CAUSE YOU TO MOVE TO ANY ROOM IN
+THE CASTLE AT RANDOM. THE ONE EXCEPTION IS THE *ORB OF ZOT*, WHICH IS
+DISGUISED AS A WARP. WALKING INTO THIS ROOM ALWAYS CAUSES YOU TO MOVE ONE
+ROOM FURTHER IN THE SAME DIRECTION. TO ACTUALLY ENTER THIS ROOM, YOU MUST
+USE THE RUNESTAFF TO TELEPORT IN. AT THIS POINT, YOU WILL ACQUIRE THE GREAT
+*ORB OF ZOT*, AND THE RUNESTAFF WILL VANISH. TO WIN THE GAME, YOU MUST LEAVE
+THE CASTLE WITH THE *ORB OF ZOT*. REMEMBER THAT CRYSTAL ORBS ARE NOT THE
+*ORB OF ZOT* AND CANNOT BE PICKED UP.
+*
+*       ERROR MESSAGES
+*
+ANY TIME YOU RECEIVE A MESSAGE STARTING WITH "**", IT MEANS THAT THE LAST
+THING YOU TYPED WAS UNACCEPTABLE TO THE PROGRAM AT THAT TIME. FOR INSTANCE,
+IF YOU GET THE MESSAGE "** IT'S HARD TO GAZE WITHOUT AN ORB.", THIS MEANS
+THAT YOU TRIED TO GAZE FROM A ROOM WHICH DID NOT CONTAIN A CRYSTAL ORB.
+YOU ARE ALWAYS REQUIRED TO REDO YOUR LAST RESPONSE WHEN YOU RECEIVE AN
+"**" TYPE MESSAGE.
+*
+*       GOOD LUCK, AND BEWARE!
+*
+EOF
+                                                                                                               
