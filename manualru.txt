@@ -150,26 +150,13 @@ BEAR (Медведь), MINOTAUR (Минотавр), GARGOYLE (Гаргулия), CHIMERA (Химера), BALR
 *
 *       Смещения и шар Зота
 *
-ALL BUT ONE OF THE ROOMS DENOTED AS "W" REALLY ARE WARPS, AND WALKING,
-FALLING, OR TELEPORTING INTO THEM WILL CAUSE YOU TO MOVE TO ANY ROOM IN
-THE CASTLE AT RANDOM. THE ONE EXCEPTION IS THE *ORB OF ZOT*, WHICH IS
-DISGUISED AS A WARP. WALKING INTO THIS ROOM ALWAYS CAUSES YOU TO MOVE ONE
-ROOM FURTHER IN THE SAME DIRECTION. TO ACTUALLY ENTER THIS ROOM, YOU MUST
-USE THE RUNESTAFF TO TELEPORT IN. AT THIS POINT, YOU WILL ACQUIRE THE GREAT
-*ORB OF ZOT*, AND THE RUNESTAFF WILL VANISH. TO WIN THE GAME, YOU MUST LEAVE
-THE CASTLE WITH THE *ORB OF ZOT*. REMEMBER THAT CRYSTAL ORBS ARE NOT THE
-*ORB OF ZOT* AND CANNOT BE PICKED UP.
+Все кроме одной комнаты обозначенные как "W" действительно являются смещениями, а также переходами, падениями, или телепортацией вызовающей перемещение тебя в любую случайную комнату замка. Одно исключение это шар Зота, который замаскирован под смещение. Переход в эту комнату всегда заставляет вас перемещаться в дальше одной комнаты в том же направлении. Для задействования входа в эту комнату, ты должен использовать волшебный посох телепортации. C этой точки зрения, ты обретёшь великий шар Зота, и волшебный посох пропадёт. для победы в игре, ты должен покинуть замок с шаром Зота. Помни что кристальный шары не являются шаром Зота и не могут быть подобраны.
 *
-*       ERROR MESSAGES
+*       Сообщения об ошибке
 *
-ANY TIME YOU RECEIVE A MESSAGE STARTING WITH "**", IT MEANS THAT THE LAST
-THING YOU TYPED WAS UNACCEPTABLE TO THE PROGRAM AT THAT TIME. FOR INSTANCE,
-IF YOU GET THE MESSAGE "** IT'S HARD TO GAZE WITHOUT AN ORB.", THIS MEANS
-THAT YOU TRIED TO GAZE FROM A ROOM WHICH DID NOT CONTAIN A CRYSTAL ORB.
-YOU ARE ALWAYS REQUIRED TO REDO YOUR LAST RESPONSE WHEN YOU RECEIVE AN
-"**" TYPE MESSAGE.
+В любое время ты можешь получить сообщение начинающееся с "**", это означает, что последнее что ты ввёл неприемлемо для пронграммы в данный момент. Например, если ты получаешь сообщение "** IT'S HARD TO GAZE WITHOUT AN ORB." ("** Сложно посмотреть без шара"), это означает, что ты пытаешься смотреть из комнаты, которая не содержит кристального шара. Когда ты получаешь сообщение типа "**", тебе всегда необходимо повторить свой ответ.
 *
-*       GOOD LUCK, AND BEWARE!
+*       Удачи и береги себя!
 *
 EOF
                                                                                                                
